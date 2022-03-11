@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monoceros :: Tic Tac Toe (Vikram Kumar)</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link href="assets/css/style.css" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>                        
+            </button>
+            <a class="navbar-brand" href="#">Monoceros : Tic Tac Toe</a>
+          </div>
+          <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="#">Home</a></li>
+              <li class=""><a onclick="newGame()">Reset Game</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a class="" data-toggle="modal" data-target="#setup"><span class="glyphicon glyphicon-cog"></span> Game Setup</a></li>
+              <li><a class="" data-toggle="modal" data-target="#details"><span class="glyphicon glyphicon-info-sign"></span> Game Details</a></li>
+              <li><a class="" data-toggle="modal" data-target="#aboutus"><span class="glyphicon glyphicon-user"></span> About Us</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+   
+    <table>
+        <tr>
+            <td class="cell" id="0"></td>
+            <td class="cell" id="1"></td>
+            <td class="cell" id="2"></td>
+        </tr>
+        <tr>
+            <td class="cell" id="3"></td>
+            <td class="cell" id="4"></td>
+            <td class="cell" id="5"></td>
+        </tr>
+        <tr>
+            <td class="cell" id="6"></td>
+            <td class="cell" id="7"></td>
+            <td class="cell" id="8"></td>
+        </tr>
+    </table>
+
+    <div class="endgame">
+        <div class=text></div>
+    </div>
+    <script src="assets/js/script.js"></script>
+    <button class="btnReplay" onclick="startGame()">Restart</button>
+    <div class="score_cal">
+            
+
+      <ul class="list-group" style="bottom:0;left:0;width: 300px;">
+        <li class="list-group-item list-group-item-action active ">
+          Score Board
+        </li>
+  
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          Computer Score
+          <span class="badge badge-primary badge-pill" id ="computer-score"></span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+         Your Score
+          <span class="badge badge-primary badge-pill" id ="human-score"></span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          Tie Count
+          <span class="badge badge-primary badge-pill" id ="tie-score"></span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          Highest Score
+          <span class="badge badge-primary badge-pill" id ="highest-score"></span>
+        </li>
+        
+      </ul>
+
+    </div>
+
+
+ 
+
+
+    <!-- Modal for Game Setup-->
+<div class="modal fade" id="setup" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Game Setup</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <center><img style="max-width: 80%;max-height: 175px;height: auto;" class="img-fluid" src="assets/images/404.gif" alt="about us"></center>
+        </div>
+       
+      </div>
+    </div>
+  </div>
+
+
+  
+    <!-- Modal for Game Details-->
+<div class="modal fade" id="details" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-md" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Game Details</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+ 
+  <div class="list-group">
+    <a href="#" class="list-group-item list-group-item-action active">
+        RULES FOR TIC-TAC-TOE
+    </a>
+    <a href="#" class="list-group-item list-group-item-action">1. The game is played on a grid that's 3 squares by 3 squares.</a>
+    <a href="#" class="list-group-item list-group-item-action">2. You are O, your friend (or the computer in this case) is X. Players take turns putting their marks in empty squares.</a>
+    <a href="#" class="list-group-item list-group-item-action">3. The first player to get 3 of her marks in a row (up, down, across, or diagonally) is the winner.</a>
+    <a href="#" class="list-group-item list-group-item-action">4. When all 9 squares are full, the game is over. If no player has 3 marks in a row, the game ends in a tie.</a>
+  </div>
+  <center><img style="max-width: 80%;max-height: 175px;height: auto;" class="img-fluid" src="assets/images/details.png" alt="about us"></center>
+
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+
+  
+    <!-- Modal for About us-->
+<div class="modal fade" id="aboutus" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-md" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">About Us</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+
+                <center><img style="max-width: 80%;max-height: 175px;height: auto;" class="img-fluid" src="assets/images/aboutus.png" alt="about us"></center>
+                <br /><br />
+                  <p class="text">I’m Vikram Kumar. I’m a full stack developer, and I specialize in efficient NodeJS and CSS & HTML that just work across all platforms and browsers. I care deeply about building interfaces that are usable and pleasant for the most number of people possible and databse structure which truly supports frontend workable.</p>
+              
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</body>
+</html>
